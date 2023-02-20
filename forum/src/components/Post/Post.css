@@ -1,0 +1,116 @@
+.post-container{
+    background-color: rgb(84, 107, 156);
+    position: relative;
+    margin: 10px;
+    height: 30vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+/* Header */
+.post-header{
+    min-height: 15%;
+    display: flex;    
+    color: black;
+}
+.post-header .post-header-date{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    
+    align-items: center;
+}
+.post-header .post-header-date p{
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.post-header .post-header-title{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post-header .post-header-author{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.post-header .post-header-author p{
+    margin-right: 10px;
+    font-weight: 600;
+}
+/* Body */
+
+.post-body{
+    background-color: rgb(12, 17, 26);
+    min-height: 70%;
+    overflow: auto;
+    color:rgb(193, 255, 255)
+}
+.post-body p {
+    padding: 10px;
+    max-width: 95%;
+    max-height: 100%;
+}
+
+/* Footer */
+
+.post-footer{
+    min-height: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.post-footer .post-footer-comments{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.post-footer .post-footer-likes{
+    height: 100%;
+    width: 100%;
+    color:rgb(193, 255, 255);
+
+    display: flex;
+    align-items: center;
+}
+.post-footer .post-footer-likes p{
+    display: inline;
+    padding: 0 5px 0 5px;
+}
+.post-footer .post-footer-likes-icons{
+    margin: 0 15px 0 auto;
+}
+
+.link-style{
+    text-decoration: none;
+    color:rgb(193, 255, 255)
+
+}
+
+.add-comment-button:hover{
+    cursor: pointer;
+    color: aquamarine;
+    transition: 0.5s;
+}
+.add-comment-button:active{
+    cursor: pointer;
+    color: greenyellow;
+}
+
+.post-add-comment-input{
+    position: relative;
+    width: 100%;
+    z-index: 0;
+    
+    transition: 100ms;
+}

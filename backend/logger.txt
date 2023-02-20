@@ -1,0 +1,11 @@
+2023/02/20 19:45:25 [INFO] (file: /home/student/forum/backend/internal/app/app.go, line: 26): Successfully Initiated the Data Base
+2023/02/20 19:45:25 [INFO] (file: /home/student/forum/backend/internal/app/app.go, line: 31): Tables have been created
+2023/02/20 19:45:25 [INFO] (file: /home/student/forum/backend/internal/app/app.go, line: 35): NewApiServer has been created
+2023/02/20 19:45:25 [INFO] (file: /home/student/forum/backend/internal/handlers/Server.go, line: 38): Starting the server at port localhost:8080
+2023/02/20 19:47:57 [INFO] (file: /home/student/forum/backend/internal/handlers/SignUp.go, line: 38): Successfully created a user
+2023/02/20 19:48:00 [INFO] (file: /home/student/forum/backend/internal/handlers/SignIn.go, line: 93): Token created: 931271b6-24da-4642-b5a4-208204171a36
+2023/02/20 19:48:00 net/http: invalid Cookie.Domain "http://localhost:8080"; dropping domain attribute
+2023/02/20 19:48:00 [INFO] (file: /home/student/forum/backend/internal/handlers/SignIn.go, line: 72): User with token: 931271b6-24da-4642-b5a4-208204171a36, just logged in...
+2023/02/20 19:48:00 http: superfluous response.WriteHeader call from forum-backend/internal/handlers.(*apiServer).SignInHandler (SignIn.go:78)
+2023/02/20 19:48:06 [INFO] (file: /home/student/forum/backend/internal/handlers/CreatePost.go, line: 90): New Post Created by: 931271b6-24da-4642-b5a4-208204171a36
+2023/02/20 19:48:08 [INFO] (file: /home/student/forum/backend/internal/handlers/CreatePost.go, line: 90): New Post Created by: 931271b6-24da-4642-b5a4-208204171a36

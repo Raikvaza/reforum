@@ -1,0 +1,63 @@
+.button {
+	--x: 50%;
+	--y: 50%;
+  
+	margin: 5px;
+  position: relative;
+	appearance: none;
+  padding: 20px;
+  font-size: medium;
+	color: white;
+	cursor: pointer;
+	outline: none;
+	border-radius: 100px;
+	
+	border: 2px solid transparent;
+	background: linear-gradient(#000, #000) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #00C9A7, #845EC2) border-box;
+}
+.header-container{
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(0, 0, 0) !important;
+}
+
+.nav {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2vw;
+}
+.nav > a{
+  flex: 1 0 auto;
+}
+
+.title{
+  width: 33%;
+  max-height: 100%;
+  text-align: center;
+  font-size:x-large;
+}
+.title>h1{
+  --x: 50%;
+	--y: 50%;
+ 
+  border: 2px solid transparent;
+	background: radial-gradient(farthest-corner at var(--x) var(--y), #00C9A7, #845EC2) border-box;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.authorization{
+  width: 33%;
+  max-height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.authorization > a{
+  margin-right: 3vw;
+}
