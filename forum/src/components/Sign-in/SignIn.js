@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert } from "@mui/material";
-import './Login.css'
-import AuthContext from '../../index'
+import './SignIn.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginSuccess } from "../../features/auth";
 const Login = () => {
-    const {setIsAuth, setUserData} = useContext(AuthContext)
-    
     useEffect(()=> {   
             const inputText = document.querySelectorAll('.auth-form__input');
             inputText.forEach( function(input) {
@@ -46,10 +45,12 @@ const Login = () => {
             });
     },[]);
 
-    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [status, setStatus] = useState(null);
+    const userData = useSelector((state) => state.auth.username);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     // useEffect(() => {
     //     console.log(temp.value);
     // }, [temp.value])
@@ -69,47 +70,43 @@ const Login = () => {
         }
     }
 
-    const sendForm = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
-        
-        (async() => {
-            await fetch(`http://localhost:8080/api/signin`, 
-            {
+        console.log(username, password);
+        const response = (async() => {
+            try {
+            const response = await fetch(`http://localhost:8080/api/signin`, {
                 headers: {
                     'Accept': 'text/plain',
                     'Content-type': 'text/plain',
                     'Credentials': 'include'
-                },
-                method: "POST",
+                },  
+                method: 'POST',
                 credentials: 'include',
+        
                 body: JSON.stringify({
                     Username: username,
                     password: password
                 }),
-            }).then((r) =>{
-                if (!r.ok){
-                    setStatus("Server-error")
-                    return null
-                }
-                return (r.json())
-            })
-            .then((data) => {
-                if (data){
-                    console.log("SIGNIN:"+ data.Username);
-                    setUserData(data.Username)
-                    setIsAuth(true)
-                    navigate("/");
-                }
-                
-            })
-        })();
-    }
+                });
+            if (!response.ok) {
+                throw new Error(response.statusText);
+            }
+            const data = await response.json();
+            dispatch(loginSuccess({ username: data.Username }));
+            navigate("/");
+            } catch (error) {
+            console.error(error);
+            }
+        })()
+        
+      };
     
     return (
         <div className="modal__background">
         <div className="modal__window">
     
-            <form className="auth-form" name="form-auth" onSubmit={sendForm}>
+            <form className="auth-form" name="form-auth" onSubmit={handleLogin}>
     
                 <label className="auth-form__label">
                     <span className="auth-form__placeholder">username</span>

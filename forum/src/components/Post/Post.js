@@ -12,13 +12,12 @@ import SendIcon from '@mui/icons-material/Send';
 function Post(props) {
     const location = useLocation();
     const { pathname, search } = location;
-    const [isActive, setIsActive] = useState(false);
     const [comment, setComment] = useState('');
 
-    const handleNewComment = () => { //Toggling Add comment button
-      setIsActive(current => !current)
-      console.log(isActive);
-    }
+    // const handleNewComment = () => { //Toggling Add comment button
+    //   setIsActive(current => !current)
+    //   console.log(isActive);
+    // }
     const sendComment = (commentText) =>{
       console.log(commentText);
     }
@@ -69,7 +68,7 @@ function Post(props) {
             <div className='post-footer-add-comment'>
                 <AddCircleOutlineIcon
                   fontSize='large'
-                  onClick={handleNewComment}
+                  // onClick={handleNewComment}
                   className='add-comment-button'
                 />
             </div>
@@ -84,25 +83,7 @@ function Post(props) {
         </div>
         
         {/* Input Form for a new comment */}
-        <div style={{bottom: isActive? '-20px': '50px', zIndex: isActive? '0': '-1'}} className='post-add-comment-input'>
-          <form>  
-            <TextField 
-              id="filled-basic"
-              label="Add Comment"
-              sx={{
-                backgroundColor:"white",
-                borderRadius: "10px",
-                width: "90%"
-              }}
-              onChange={(e) => setComment(e.target.value)}
-            />
-            <Button
-              variant="contained"
-              startIcon={<SendIcon />}
-              onClick={(e) => sendComment(comment)}
-            />
-          </form>
-        </div>      
+              
       </div>
     );
   }
